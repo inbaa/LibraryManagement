@@ -1,0 +1,12 @@
+<!--- user Id and bookLNo change event empty author and book name -->
+    <script type="text/javascript">
+        function userIdChange(txt) {
+            //$("#userName").val("");
+            //document.getElementById('userName').value = '';
+            document.getElementById('bookName').value = '';
+            document.getElementById('authorName').value = '';
+        }
+    </script>
+
+
+asp: textbox onFocus="userIdChange(this)" 

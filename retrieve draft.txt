@@ -1,0 +1,22 @@
+protected void retrieve_Click(object sender, EventArgs e)
+        {
+            string mycon = "server =localhost; Uid=root; password = ; persistsecurityinfo = True; database =test1; SslMode = none";
+            MySqlConnection con = new MySqlConnection(mycon);
+            DataTable dt = new DataTable();
+            MySqlCommand cmd = null;
+            try
+            {
+                cmd = new MySqlCommand("Select * from demo", con);
+                con.Open();
+                dt.Load(cmd.ExecuteReader());
+                con.Close();
+
+            }
+            catch (Exception ex)
+            {
+                Response.Write("<script>alert('" + ex.Message + "')</script>");
+                con.Close();
+            }
+            GridView1.DataSource = dt;
+            GridView1.DataBind();
+        }
